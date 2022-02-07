@@ -1,0 +1,7 @@
+---
+
+- name: Install packages
+  become: true
+  package:
+    name: "{{ item }}"
+  loop: "{{ common__packages_list }}"

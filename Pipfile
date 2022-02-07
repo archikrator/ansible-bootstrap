@@ -4,10 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-ansible = "==2.5.3"
+ansible = "==5.3.0"
+"ansible-lint[community,yamllint]" = "*"
 boto = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "2.7"
+# Minimal Python version for ansible is 3.8
+python_version = "3.8"

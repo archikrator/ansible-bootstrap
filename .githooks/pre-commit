@@ -1,8 +1,11 @@
 #!/bin/bash
+#
+# This script prevents you from inadvertently making a commit with unencrypted passwords
+#
+# Usage: Put this file into .git/hooks in your git repository.
+#
 
-# Skrypt zapobiega nieumyślnemu zrobienia commita z niezaszyfrowanymi hasłami
-
-FILES_PATTERN='vault.*\.yml'
+FILES_PATTERN='vault_.*'
 REQUIRED='ANSIBLE_VAULT'
 UNENCRYPTED=0
 
@@ -11,7 +14,12 @@ wipe="\033[1m\033[0m"
 yellow='\033[1;33m'
 cr='
 '
-for f in $(git diff --cached --name-only | grep -E $FILES_PATTERN)
+
+FILES_IN_COMMIT=$(git diff --cached --name-only | grep -E $FILES_PATTERN)
+
+ansible-lint $FILES_IN_COMMIT || EXIT_STATUS=1
+
+for f in $FILES_IN_COMMIT
 do
   MATCH=`head -n1 $f | grep --no-messages $REQUIRED`
   if [ ! $MATCH ] ; then

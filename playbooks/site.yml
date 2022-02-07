@@ -1,0 +1,6 @@
+---
+
+- name: Common
+  hosts: all
+  roles:
+    - common

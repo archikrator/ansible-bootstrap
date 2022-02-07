@@ -6,9 +6,8 @@
 #
 
 # Check if the path is corrent
-[[ -f "./.ansible_source_marker" ]] || {
-  echo "You run this script from bath path,"
-  echo "cd to you ansible repository and try again."
+[[ -f "./Pipfile" ]] || {
+  echo "No Pipfile found."
   return
 }
 

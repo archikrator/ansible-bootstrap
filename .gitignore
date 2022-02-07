@@ -1,6 +1,8 @@
 .idea/
 .vscode
 .vagrant/
+.ansible/
 *.pyc
 *.BAK
 Pipfile.lock
+.ansible_vault_pass
