@@ -2,8 +2,6 @@
 
 If you have multiple Ansible projects for different applications you can use this repo as a starting base. Using python virtual environments you can keep separate dependencies for each of your projects, no matter what packages you have installed on your system.
 
-[![asciicast](https://asciinema.org/a/0C3ZhNKPwNVmdt2Cph6jT5NwJ.svg)](https://asciinema.org/a/0C3ZhNKPwNVmdt2Cph6jT5NwJ)
-
 ## Install requirements
 ```
 $ pip3 install -U pipenv
